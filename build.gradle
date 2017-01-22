@@ -1,0 +1,32 @@
+plugins {
+    id 'com.gradle.build-scan' version '1.4'
+    id 'org.springframework.boot' version '1.4.3.RELEASE'
+}
+
+apply plugin: 'groovy'
+apply plugin: 'idea'
+
+version = '0.1-SNAPSHOT'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all'
+
+    compile 'org.springframework.boot:spring-boot-starter-web'
+
+    compile 'org.slf4j:slf4j-api'
+    compile 'ch.qos.logback:logback-classic'
+
+    compile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7'
+}
+
+buildScan {
+    licenseAgreementUrl = 'https://gradle.com/terms-of-service'
+    licenseAgree = 'yes'
+}
+
+apply plugin: 'application'
+mainClassName = 'com.github.takispravy.hellobot.Application'

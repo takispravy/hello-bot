@@ -1,0 +1,36 @@
+= HOWTO: start service as docker container
+
+== Environment preparations
+
+[source,shell]
+----
+mkdir -p /logs
+----
+
+== Cleaning previosly started container
+
+[source,shell]
+----
+docker ps -a
+docker kill takispravy_hellobot; docker rm takispravy_hellobot
+----
+
+== Configuration parameters
+
+Following environment variable are avaiable for global service configuration:
+
+TAKISPRAVY_AUTH_TOKEN - telegram authentication token
+
+TAKISPRAVY_ALREADY_PROCESSED_UPDATE_ID - last already processed update_id (default is 0)
+
+TAKISPRAVY_ROOT_LOG_LEVEL - logging level for third-party libraries (default is INFO)
+
+TAKISPRAVY_LOG_LEVEL - logging level for service code (default is INFO)
+
+== Start service
+
+[source,shell]
+----
+docker pull takispravy/hello-bot:$TAG
+docker run -dit --name takispravy_hellobot -v /logs:/logs -p 8080:8080 takispravy/hello-bot:$TAG
+----
