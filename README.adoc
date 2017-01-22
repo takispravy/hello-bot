@@ -1,0 +1,9 @@
+= hello-bot
+
+TravisCI - https://travis-ci.org/takispravy/hello-bot/
+
+DockerHub - https://hub.docker.com/r/takispravy/hello-bot/
+
+== Documentation
+
+link:src/docs/howto-start-docker.adoc[HOWTO: start service as docker container]
