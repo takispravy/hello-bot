@@ -23,6 +23,8 @@ TAKISPRAVY_AUTH_TOKEN - telegram authentication token
 
 TAKISPRAVY_ALREADY_PROCESSED_UPDATE_ID - last already processed update_id (default is 0)
 
+TAKISPRAVY_PROCESSING_DELAY - processing delay in millis (default is 1000)
+
 TAKISPRAVY_ROOT_LOG_LEVEL - logging level for third-party libraries (default is INFO)
 
 TAKISPRAVY_LOG_LEVEL - logging level for service code (default is INFO)

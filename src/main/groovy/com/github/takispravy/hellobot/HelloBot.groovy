@@ -14,7 +14,9 @@ class HelloBot {
 
     static String AUTH_TOKEN = System.getenv('TAKISPRAVY_AUTH_TOKEN')
 
-    static Integer ALREADY_PROCESSED_UPDATE_ID = Integer.parseInt(System.getenv('TAKISPRAVY_ALREADY_PROCESSED_UPDATE_ID') ?: '0')
+    static int ALREADY_PROCESSED_UPDATE_ID = Integer.parseInt(System.getenv('TAKISPRAVY_ALREADY_PROCESSED_UPDATE_ID') ?: '0')
+
+    static long PROCESSING_DELAY = Long.parseLong(System.getenv('TAKISPRAVY_PROCESSING_DELAY') ?: '1000')
 
     @Autowired
     TaskExecutor taskExecutor
@@ -28,7 +30,7 @@ class HelloBot {
             int lastProcessedUpdateId = ALREADY_PROCESSED_UPDATE_ID
             while (true) {
                 lastProcessedUpdateId = doHelloBot(lastProcessedUpdateId)
-                Thread.sleep(1000)
+                Thread.sleep(PROCESSING_DELAY)
             }
         })
     }
